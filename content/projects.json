@@ -1,0 +1,67 @@
+{
+  "items": [
+  {
+    "title": "6-Axis Pick & Place Cell",
+    "category": "robotics",
+    "badge": "Robotics",
+    "shape": "robot",
+    "description": "Vision-guided robotic cell with B&R motion control for high-speed precision assembly on a consumer-electronics line.",
+    "tags": ["B&R", "Motion", "Machine Vision"],
+    "result": "99.2% accuracy · +40% throughput"
+  },
+  {
+    "title": "Smart Factory Monitoring",
+    "category": "iot",
+    "badge": "IoT · Automation",
+    "shape": "building",
+    "description": "200+ sensor IIoT network feeding a real-time SCADA dashboard with predictive alerts across two plants.",
+    "tags": ["MQTT", "Grafana", "SCADA"],
+    "result": "35% energy saved · live telemetry"
+  },
+  {
+    "title": "ESP32 Sensor & Telemetry Platform",
+    "category": "embedded",
+    "badge": "Embedded",
+    "shape": "chip",
+    "description": "Low-power firmware platform with edge analytics and robust data logging for 10,000+ field devices.",
+    "tags": ["ESP32", "FreeRTOS", "Low-power"],
+    "result": "2-yr battery · 10k+ devices"
+  },
+  {
+    "title": "Inline Quality-Control Vision",
+    "category": "automation",
+    "badge": "Vision · Automation",
+    "shape": "eye",
+    "description": "Camera-based defect detection integrated into a production line, flagging faults in real time before packaging.",
+    "tags": ["OpenCV", "Edge AI", "PLC"],
+    "result": "99.8% detection · 1000 units/hr"
+  },
+  {
+    "title": "Hybrid Energy Controller",
+    "category": "control",
+    "badge": "Control · Power",
+    "shape": "energy",
+    "description": "Solar + battery optimisation controller with predictive load balancing for a commercial microgrid.",
+    "tags": ["STM32", "Modbus", "Control"],
+    "result": "45% lower energy cost"
+  },
+  {
+    "title": "Predictive Maintenance Platform",
+    "category": "iot",
+    "badge": "IoT · ML",
+    "shape": "ml",
+    "description": "Vibration & current monitoring with ML models predicting equipment failure days in advance.",
+    "tags": ["Edge ML", "InfluxDB", "Cloud"],
+    "result": "60% less downtime · ROI in 8 mo"
+  },
+  {
+    "title": "Custom Machine & Enclosure Design",
+    "category": "design",
+    "badge": "Mechanical · CAD",
+    "shape": "cube",
+    "description": "End-to-end SolidWorks 3D design of a bespoke automation machine — frame, motion assembly, enclosures and production-ready drawings.",
+    "tags": ["SolidWorks", "3D CAD", "DFM"],
+    "result": "Concept to production in 12 weeks"
+  }
+  ]
+}

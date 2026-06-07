@@ -1,0 +1,12 @@
+# Local development only — not part of the deployed site
+dev-server.ps1
+logo-options.html
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vscode/
+.idea/
+node_modules/

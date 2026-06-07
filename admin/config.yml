@@ -1,0 +1,103 @@
+# ============================================================
+# INVENTRA — Decap CMS configuration
+# Admin lives at  /admin/  and edits the JSON files in /content/.
+# Saving commits to your Git repo, which auto-redeploys the site.
+# ============================================================
+
+# ---- AUTHENTICATION ----
+# RECOMMENDED (turnkey): host the site on Netlify and enable
+# Identity + Git Gateway — then this works with zero extra setup.
+backend:
+  name: git-gateway
+  branch: main
+
+# ---- ALTERNATIVE: GitHub Pages + GitHub login ----
+# If you keep the site on GitHub Pages, comment out the block above
+# and use this instead (needs a tiny free OAuth proxy — see README):
+# backend:
+#   name: github
+#   repo: YOUR-USERNAME/inventra        # change to your repo
+#   branch: main
+#   base_url: https://your-oauth-proxy  # e.g. a free Cloudflare Worker
+
+# Editorial workflow gives you draft → review → publish (optional).
+# publish_mode: editorial_workflow
+
+media_folder: "assets/img"
+public_folder: "assets/img"
+site_url: "https://REPLACE-WITH-YOUR-DOMAIN"
+display_url: "https://REPLACE-WITH-YOUR-DOMAIN"
+logo_url: "../favicon.svg"
+
+collections:
+  # ---------- Business details ----------
+  - name: settings
+    label: "⚙️ Business details"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: general
+        label: "Contact & social"
+        file: "content/settings.json"
+        fields:
+          - { name: company, label: "Company name", widget: string }
+          - { name: email, label: "Email", widget: string }
+          - { name: phone, label: "Phone (display)", widget: string }
+          - { name: phone_href, label: "Phone (dial format, e.g. +15551234567)", widget: string }
+          - { name: location, label: "Location", widget: string }
+          - { name: response_time, label: "Response time", widget: string }
+          - { name: linkedin, label: "LinkedIn URL", widget: string, required: false }
+          - { name: github, label: "GitHub URL", widget: string, required: false }
+          - { name: x, label: "X / Twitter URL", widget: string, required: false }
+
+  # ---------- Projects ----------
+  - name: projects
+    label: "🛠️ Projects"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: list
+        label: "Projects portfolio"
+        file: "content/projects.json"
+        fields:
+          - name: items
+            label: "Projects"
+            label_singular: "Project"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Title", widget: string }
+              - { name: category, label: "Filter category", widget: select, options: ["robotics", "automation", "embedded", "iot", "control", "design"] }
+              - { name: badge, label: "Badge text", widget: string, hint: "Shown on the card, e.g. 'IoT · Automation'" }
+              - { name: shape, label: "Icon", widget: select, options: ["robot", "building", "chip", "eye", "energy", "ml", "cube"] }
+              - { name: description, label: "Description", widget: text }
+              - { name: tags, label: "Tags", widget: list, field: { name: tag, label: "Tag", widget: string } }
+              - { name: result, label: "Result line", widget: string, hint: "e.g. '99.2% accuracy · +40% throughput'" }
+
+  # ---------- Blog / Insights ----------
+  - name: blog
+    label: "📝 Insights (blog)"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: posts
+        label: "Blog posts"
+        file: "content/blog.json"
+        fields:
+          - name: posts
+            label: "Posts"
+            label_singular: "Post"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Title", widget: string }
+              - { name: slug, label: "URL slug", widget: string, hint: "lowercase-with-dashes; used in the post URL" }
+              - { name: date, label: "Date", widget: date }
+              - { name: category, label: "Category", widget: select, options: ["Automation", "Embedded", "IoT", "Control", "Robotics"] }
+              - { name: reading_time, label: "Reading time", widget: string, default: "5 min read" }
+              - { name: excerpt, label: "Excerpt", widget: text }
+              - { name: featured, label: "Feature on blog page?", widget: boolean, default: false }
+              - name: body
+                label: "Body (Markdown — one block per line)"
+                widget: list
+                field: { name: line, label: "Line / paragraph (Markdown)", widget: string }
