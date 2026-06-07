@@ -92,19 +92,19 @@ Or just double-click `index.html` (the contact form's live submit needs http, no
 
 ## 🚀 Deploy to GitHub Pages (free)
 
-1. Create a new GitHub repo (e.g. `inventra`).
+1. Create a new GitHub repo (e.g. `inventrasolutions`).
 2. From this folder:
    ```bash
    git init
    git add .
    git commit -m "INVENTRA website"
    git branch -M main
-   git remote add origin https://github.com/<you>/inventra.git
+   git remote add origin https://github.com/<you>/inventrasolutions.git
    git push -u origin main
    ```
 3. On GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions.**
    The included workflow (`.github/workflows/deploy.yml`) publishes automatically on every push.
-4. Your site goes live at `https://<you>.github.io/inventra/`.
+4. Your site goes live at `https://<you>.github.io/inventrasolutions/`.
    *(For a clean root URL, name the repo `<you>.github.io`.)*
 
 After it's live, update `REPLACE-WITH-YOUR-DOMAIN` in `sitemap.xml`, `robots.txt`, and the
