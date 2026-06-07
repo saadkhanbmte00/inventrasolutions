@@ -7,6 +7,23 @@
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---- Preloader / loading screen (first visit per session) ---- */
+  const pl = document.getElementById('preloader');
+  if (pl) {
+    if (sessionStorage.getItem('inventra_loaded')) {
+      pl.remove();
+    } else {
+      const hide = () => {
+        if (!pl.isConnected) return;
+        pl.classList.add('done');
+        sessionStorage.setItem('inventra_loaded', '1');
+        setTimeout(() => pl.remove(), 850);
+      };
+      window.addEventListener('load', () => setTimeout(hide, reduceMotion ? 0 : 650));
+      setTimeout(hide, 4500); // safety
+    }
+  }
+
   /* ---- Header: scrolled state + scroll progress ---- */
   const header = $('.site-header');
   const progress = $('.scroll-progress');
